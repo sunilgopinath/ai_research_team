@@ -1,4 +1,6 @@
-# AiResearchTeam Crew
+# AI Research Team Crew
+
+This code follows the https://learn.deeplearning.ai/courses/multi-ai-agent-systems-with-crewai course
 
 Welcome to the AiResearchTeam Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
@@ -18,14 +20,6 @@ Next, navigate to your project directory and install the dependencies:
 ```bash
 crewai install
 ```
-### Customizing
-
-**Add your `OPENAI_API_KEY` into the `.env` file**
-
-- Modify `src/ai_research_team/config/agents.yaml` to define your agents
-- Modify `src/ai_research_team/config/tasks.yaml` to define your tasks
-- Modify `src/ai_research_team/crew.py` to add your own logic, tools and specific args
-- Modify `src/ai_research_team/main.py` to add custom inputs for your agents and tasks
 
 ## Running the Project
 
@@ -35,6 +29,8 @@ To kickstart your crew of AI agents and begin task execution, run this from the 
 $ crewai run
 ```
 
+Currently this produces an [email](./email.md) for the customer
+
 This command initializes the ai_research_team Crew, assembling the agents and assigning them tasks as defined in your configuration.
 
 This example, unmodified, will run the create a `report.md` file with the output of a research on LLMs in the root folder.
@@ -42,14 +38,3 @@ This example, unmodified, will run the create a `report.md` file with the output
 ## Understanding Your Crew
 
 The ai_research_team Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
-
-## Support
-
-For support, questions, or feedback regarding the AiResearchTeam Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
-# ai_research_team
