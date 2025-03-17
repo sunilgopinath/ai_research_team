@@ -18,8 +18,9 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'customer': 'DeepLearningAI',
+        'person': 'John Doe',
+        'inquiry': 'I need help with setting up a Crew and kicking it off, specifically how can I add memory to my crew? Can you provide guidance?'
     }
     
     try:
@@ -33,7 +34,7 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        "customer": "DeepLearningAI",
     }
     try:
         AiResearchTeam().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -56,8 +57,9 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs",
-        "current_year": str(datetime.now().year)
+        "customer": "DeepLearningAI",
+        "person": "John Doe",
+        "inquiry": "I need help with setting up a Crew and kicking it off, specifically how can I add memory to my crew? Can you provide guidance?"
     }
     try:
         AiResearchTeam().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)

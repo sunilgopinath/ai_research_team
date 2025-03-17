@@ -1,5 +1,12 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import (
+    ScrapeWebsiteTool,
+    FileReadTool,
+    SerperDevTool,
+    WebsiteSearchTool
+)
+
 
 # If you want to run a snippet of code before or after the crew starts, 
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -18,33 +25,33 @@ class AiResearchTeam():
 	# If you would like to add tools to your agents, you can learn more about it here:
 	# https://docs.crewai.com/concepts/agents#agent-tools
 	@agent
-	def researcher(self) -> Agent:
+	def support_agent(self) -> Agent:
 		return Agent(
-			config=self.agents_config['researcher'],
+			config=self.agents_config['support_agent'],
 			verbose=True
 		)
-
+	
 	@agent
-	def reporting_analyst(self) -> Agent:
+	def support_quality_assurance_agent(self) -> Agent:
 		return Agent(
-			config=self.agents_config['reporting_analyst'],
-			verbose=True
+			config=self.agents_config['support_quality_assurance_agent'],
 		)
 
 	# To learn more about structured task outputs, 
 	# task dependencies, and task callbacks, check out the documentation:
 	# https://docs.crewai.com/concepts/tasks#overview-of-a-task
 	@task
-	def research_task(self) -> Task:
+	def inquiry_resolution_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['research_task'],
+			config=self.tasks_config['inquiry_resolution_task'],
+			tool=ScrapeWebsiteTool(website_url='https://docs.crewai.com/how-to/Creating-a-Crew-and-kick-it-off/'),
+			output_file='email.md'
 		)
-
+	
 	@task
-	def reporting_task(self) -> Task:
+	def quality_assurance_review_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['reporting_task'],
-			output_file='report.md'
+			config=self.tasks_config['quality_assurance_review_task']
 		)
 
 	@crew
